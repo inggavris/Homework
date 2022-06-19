@@ -24,23 +24,26 @@ public class Main {
         myNovels[3] = new Novels("Castelul", 430, "drama");
         myNovels[4] = new Novels("Schimb de dame", 380, "comic");
 
-        //System.out.println(((myBooks.get(3).getName())));
+        //display initial book list
         System.out.println("Your book list is: ");
         for (Books myBook : myBooks) {
             System.out.println(myBook.getName());
         }
         System.out.println("Please insert new book name: ");
-        Books extendBooks = new Books();
+        Scanner keyboard = new Scanner(System.in);
+        String newBook = keyboard.nextLine();
+        myBooks.add(4,new Books (newBook,100));
+
+        //display book list after adding 1 book
         System.out.println("Your new book list is: ");
         for (Books myBook : myBooks) {
             System.out.println(myBook.getName());
-            System.out.println(extendBooks.addBook());
         }
 
         int l1 = myBooks.size();
         System.out.println("Please insert the name of the book you want to delete: ");
-        Scanner keyboard = new Scanner(System.in);
-        String deleteBook = keyboard.nextLine();
+        Scanner keyboard1 = new Scanner(System.in);
+        String deleteBook = keyboard1.nextLine();
         for (int i = 0; i < myBooks.size(); i++) {
             if (myBooks.get(i).getName().equals(deleteBook)) {
                 myBooks.remove(i);
@@ -50,14 +53,19 @@ public class Main {
         if (l1 == l2) {
             System.out.println("We don't have this book in our library! ");
         }
+        //display book list after deleting 1 book
         else {
             System.out.println("Your book list after deleting one book is: ");
             for (Books myBook : myBooks) {
                 System.out.println(myBook.getName());
             }
         }
-        System.out.println("Your favourite art album is: " + ((myArtAlbums[0].getName()).toString()));
-        System.out.println("Your favourite novel is: " + ((myNovels[1].getName()).toString()));
+
+        //display one ArtAlbums object
+        System.out.println("Your favourite art album is: " + ((myArtAlbums[0].getName())));
+
+        //display one Novels object
+        System.out.println("Your favourite novel is: " + ((myNovels[1].getName())));
 
     }
 }
